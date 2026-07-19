@@ -1,0 +1,61 @@
+.navcontent {
+  width: 250px;
+}
+
+.navcontent h1 {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.cart-button {
+  color: #43a047;
+}
+
+.cart-button mat-icon {
+  font-size: 28px;
+}
+
+.subcontent {
+  padding: 10px 20px;
+}
+
+.mat-sidenav-container {
+  height: 100vh;
+}
+
+.mat-mdc-button {
+  color: #343dff;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+button{
+  font-size: 18px;
+}

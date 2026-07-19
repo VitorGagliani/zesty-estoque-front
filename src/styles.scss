@@ -1,0 +1,41 @@
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$green-palette,
+      tertiary: mat.$orange-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+:root {
+  --zesty-primary: #4caf50;
+  --zesty-primary-dark: #388e3c;
+  --zesty-primary-light: #81c784;
+
+  --zesty-accent: #ff9800;
+  --zesty-accent-dark: #f57c00;
+  --zesty-accent-light: #ffb74d;
+
+  --zesty-background: #f5f7fa;
+  --zesty-surface: #ffffff;
+
+  --zesty-text: #1f2937;
+  --zesty-text-secondary: #6b7280;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: var(--zesty-background);
+  color: var(--zesty-text);
+}

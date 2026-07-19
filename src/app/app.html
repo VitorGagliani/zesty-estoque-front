@@ -1,0 +1,47 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [opened]="false" class="navcontent">
+    <div class="title">
+      <img class="logo" src="Zesty-Logo.svg" alt="">
+      <h1>Zesty Estoque</h1>
+    </div>
+    @for (modulo of modulos; track modulo.codigo) {
+    <div class="subcontent">
+      <button
+        mat-button
+        color="primary"
+        (click)="sidenav.toggle()"
+        [routerLink]="['/', modulo.codigo.toLowerCase()]">
+
+        {{ modulo.nome }}
+      </button>
+    </div>
+  }
+
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-toolbar class="toolbar">
+
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span class="spacer"></span>
+<!--
+  <button mat-icon-button class="cart-button" (click)="abrirCarrinho()">
+    <mat-icon>shopping_bag</mat-icon>
+  </button> -->
+
+</mat-toolbar>
+    </mat-toolbar>
+    <div class="content-padding">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
