@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 export interface ModuloMenuItem {
   codigo: string;
   nome: string;
+  filhos?: ModuloMenuItem[];
 }
 
 @Injectable({

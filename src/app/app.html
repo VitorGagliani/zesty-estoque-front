@@ -4,18 +4,40 @@
       <img class="logo" src="Zesty-Logo.svg" alt="">
       <h1>Zesty Estoque</h1>
     </div>
-    @for (modulo of modulos; track modulo.codigo) {
-    <div class="subcontent">
-      <button
-        mat-button
-        color="primary"
-        (click)="sidenav.toggle()"
-        [routerLink]="['/', modulo.codigo.toLowerCase()]">
+    <ng-container *ngFor="let modulo of modulos">
+      <div class="subcontent">
+        <div class="subcontent-header">
+          <button
+            mat-button
+            color="primary"
+            (click)="sidenav.toggle()"
+            [routerLink]="['/', modulo.codigo.toLowerCase()]">
+            {{ modulo.nome }}
+          </button>
 
-        {{ modulo.nome }}
-      </button>
-    </div>
-  }
+          <button
+            *ngIf="modulo.filhos?.length"
+            mat-icon-button
+            class="expand-button"
+            (click)="toggleFilhos(modulo.codigo); $event.stopPropagation()"
+            [attr.aria-label]="isExpanded(modulo.codigo) ? 'Fechar ' + modulo.nome : 'Abrir ' + modulo.nome">
+            <mat-icon>{{ isExpanded(modulo.codigo) ? 'expand_less' : 'expand_more' }}</mat-icon>
+          </button>
+        </div>
+
+        <div class="subcontent-children" *ngIf="modulo.filhos?.length && isExpanded(modulo.codigo)">
+          <button
+            *ngFor="let filho of modulo.filhos"
+            mat-button
+            color="primary"
+            class="child-button"
+            (click)="sidenav.toggle()"
+            [routerLink]="['/', modulo.codigo.toLowerCase(), filho.codigo.toLowerCase()]">
+            {{ filho.nome }}
+          </button>
+        </div>
+      </div>
+    </ng-container>
 
 
   </mat-sidenav>

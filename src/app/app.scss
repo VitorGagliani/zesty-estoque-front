@@ -37,6 +37,31 @@ mat-toolbar {
   padding: 10px 20px;
 }
 
+.subcontent-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subcontent-children {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+  padding-left: 16px;
+}
+
+.child-button {
+  justify-content: flex-start;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.expand-button {
+  width: 36px;
+  height: 36px;
+}
+
 .mat-sidenav-container {
   height: 100vh;
 }
