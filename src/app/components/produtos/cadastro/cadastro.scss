@@ -1,0 +1,62 @@
+.form {
+  max-width: 1150px;
+  margin: 35px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  padding-left: 5px;
+
+  h2 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--zesty-text);
+  }
+
+  p {
+    margin-top: 6px;
+    color: var(--zesty-text-secondary);
+    font-size: 15px;
+  }
+}
+
+.card {
+  background: var(--zesty-surface);
+  border-radius: 14px;
+  padding: 28px;
+  border: 1px solid rgba(255,255,255,.05);
+}
+
+.card h3 {
+  margin: 0 0 22px;
+  font-size: 18px;
+  color: black;
+  font-weight: 400;
+}
+
+.row {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.grow {
+  flex: 1;
+}
+
+.medium {
+  flex: 0 0 220px;
+}
+
+.small {
+  flex: 0 0 180px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}

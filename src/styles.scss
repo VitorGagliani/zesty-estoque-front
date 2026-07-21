@@ -14,17 +14,18 @@ html {
 
 :root {
   --zesty-primary: #4caf50;
-  --zesty-primary-dark: #388e3c;
-  --zesty-primary-light: #81c784;
+  --zesty-primary-dark: #357a38;
+  --zesty-primary-light: #a5d6a7;
 
-  --zesty-accent: #ff9800;
-  --zesty-accent-dark: #f57c00;
-  --zesty-accent-light: #ffb74d;
+  --zesty-accent: #81c784;
+  --zesty-accent-dark: #66bb6a;
+  --zesty-accent-light: #c8e6c9;
 
-  --zesty-background: #f5f7fa;
-  --zesty-surface: #ffffff;
+  --zesty-background: #f7fbf7;
+  --zesty-surface: #edf6ec;
 
   --zesty-text: #1f2937;
+  --zesty-text-title: #2F3D2E
   --zesty-text-secondary: #6b7280;
 }
 
@@ -36,6 +37,6 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: var(--zesty-background);
+  background: white;
   color: var(--zesty-text);
 }

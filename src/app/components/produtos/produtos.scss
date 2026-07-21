@@ -1,0 +1,44 @@
+.filters {
+  padding: 10px;
+  background-color: var(--zesty-surface);
+  color: black;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 30px;
+  width: 1000px;
+  place-self: center;
+}
+
+.new {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new mat-icon {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: var(--zesty-primary);
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+}
+
+.filters h4 {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.selects {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}

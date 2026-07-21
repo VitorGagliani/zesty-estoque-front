@@ -1,1 +1,100 @@
-<p>cadastro works!</p>
+<form class="form" [formGroup]="form">
+
+  <div class="header">
+    <h2>Novo Produto</h2>
+    <p>Cadastre um produto para controle de estoque.</p>
+  </div>
+
+  <!-- Dados Gerais -->
+  <section class="card">
+
+    <h3>Dados Gerais</h3>
+
+    <div class="row">
+
+      <mat-form-field class="grow" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="Ex.: Molho de Tomate" formControlName="nome">
+      </mat-form-field>
+
+      <mat-form-field class="grow" appearance="outline">
+        <mat-label>Descrição</mat-label>
+        <input matInput placeholder="Descrição do produto" formControlName="descricao">
+      </mat-form-field>
+
+    </div>
+
+  </section>
+
+  <!-- Configuração -->
+  <section class="card">
+
+    <h3>Configuração</h3>
+
+    <div class="row">
+
+      <mat-form-field appearance="outline" class="medium">
+        <mat-label>Tipo</mat-label>
+        <mat-select formControlName="tipoId">
+          <mat-option *ngFor="let option of tipoOptions" [value]="option.value">
+            {{ option.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="medium">
+        <mat-label>Unidade</mat-label>
+        <mat-select formControlName="unidadeId">
+          <mat-option *ngFor="let option of unidadeOptions" [value]="option.value">
+            {{ option.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="grow">
+        <mat-label>Fornecedor</mat-label>
+        <mat-select formControlName="fornecedorId">
+          <mat-option *ngFor="let option of fornecedorOptions" [value]="option.value">
+            {{ option.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+  </section>
+
+  <!-- Estoque -->
+  <section class="card">
+
+    <h3>Controle de Estoque</h3>
+
+    <div class="row">
+
+      <mat-form-field appearance="outline" class="small">
+        <mat-label>Estoque mínimo</mat-label>
+        <input matInput type="number">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="small">
+        <mat-label>Estoque máximo</mat-label>
+        <input matInput type="number">
+      </mat-form-field>
+
+    </div>
+
+  </section>
+
+  <div class="actions">
+
+    <button mat-stroked-button type="button">
+      Cancelar
+    </button>
+
+    <button mat-flat-button color="primary" type="button" (click)="salvar()">
+      Salvar Produto
+    </button>
+
+  </div>
+
+</form>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 
 export interface ModuloMenuItem {
   codigo: string;
@@ -14,7 +15,7 @@ export interface ModuloMenuItem {
 })
 export class ModulosAcessos {
 
-  private readonly apiUrl = 'http://localhost:8081';
+  private readonly apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 

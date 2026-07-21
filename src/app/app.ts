@@ -1,6 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { NgForOf, NgIf } from '@angular/common';
+import { filter } from 'rxjs/operators';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -31,6 +32,7 @@ import {
 export class App implements OnInit {
 
   protected readonly title = signal('zesty-estoque');
+  protected readonly currentPageTitle = signal('Zesty Estoque');
 
   modulos: ModuloMenuItem[] = [];
 
@@ -43,9 +45,21 @@ export class App implements OnInit {
     ]
   };
 
-  constructor(private readonly modulosAcessos: ModulosAcessos) {}
+  constructor(
+    private readonly modulosAcessos: ModulosAcessos,
+    private readonly router: Router,
+    private readonly activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.currentPageTitle.set(this.getTitleFromRoute(this.activatedRoute.root));
+      });
+
+    this.currentPageTitle.set(this.getTitleFromRoute(this.activatedRoute.root));
+
     this.modulosAcessos.getModulosMenu().subscribe({
       next: (dados: ModuloMenuItem[]) => {
         this.modulos = dados.map((modulo) => ({
@@ -66,5 +80,20 @@ export class App implements OnInit {
 
   isExpanded(codigo: string): boolean {
     return !!this.expandedModules[codigo.toLowerCase()];
+  }
+
+  private getTitleFromRoute(route: ActivatedRoute | null): string {
+    let currentRoute = route;
+    let title = 'Zesty Estoque';
+
+    while (currentRoute) {
+      const routeTitle = currentRoute.snapshot.data['title'];
+      if (routeTitle) {
+        title = routeTitle;
+      }
+      currentRoute = currentRoute.firstChild;
+    }
+
+    return title;
   }
 }

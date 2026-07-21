@@ -4,6 +4,7 @@
       <img class="logo" src="Zesty-Logo.svg" alt="">
       <h1>Zesty Estoque</h1>
     </div>
+
     <ng-container *ngFor="let modulo of modulos">
       <div class="subcontent">
         <div class="subcontent-header">
@@ -47,19 +48,12 @@
       <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <mat-toolbar class="toolbar">
-
-  <button mat-icon-button (click)="sidenav.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-
-  <span class="spacer"></span>
+      <span class="page-title-toolbar" *ngIf="!sidenav.opened">{{ currentPageTitle() }}</span>
+      <span class="spacer"></span>
 <!--
-  <button mat-icon-button class="cart-button" (click)="abrirCarrinho()">
-    <mat-icon>shopping_bag</mat-icon>
-  </button> -->
-
-</mat-toolbar>
+      <button mat-icon-button class="cart-button" (click)="abrirCarrinho()">
+        <mat-icon>shopping_bag</mat-icon>
+      </button> -->
     </mat-toolbar>
     <div class="content-padding">
       <router-outlet></router-outlet>
