@@ -5,23 +5,34 @@
   border-radius: 8px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 10px 40px;
   margin-top: 30px;
   width: 1000px;
-  place-self: center;
+  place-self: start;
 }
 
 .new {
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
-.new mat-icon {
-  font-size: 40px;
-  width: 40px;
-  height: 40px;
+.new-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--zesty-primary);
+  font-weight: 600;
   cursor: pointer;
+}
+
+.new-icon {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
   color: var(--zesty-primary);
 }
 
@@ -41,4 +52,9 @@
   display: flex;
   gap: 10px;
   margin-top: 10px;
+}
+
+
+.grid{
+  margin-top: 100px;
 }

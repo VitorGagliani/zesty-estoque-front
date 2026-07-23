@@ -43,6 +43,20 @@
     </div>
   </div>
   <div class="new">
-    <mat-icon [routerLink]="['/produtos/novo']">add_circle</mat-icon>
+    <a class="new-link" [routerLink]="['/produtos/novo']" aria-label="Novo produto">
+      Novo
+      <mat-icon class="new-icon">add_circle</mat-icon>
+    </a>
   </div>
+</div>
+
+<div class="grid">
+  <div class>
+    <app-grid
+    [columns]="columns"
+    [itens]="itens">
+    </app-grid>
+  </div>
+
+
 </div>
