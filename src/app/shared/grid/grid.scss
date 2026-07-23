@@ -1,0 +1,48 @@
+.grid-card {
+  width: 100%;
+  overflow-x: auto;
+  place-self: center;
+  align-self: center;
+}
+
+.grid-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.grid-table th,
+.grid-table td {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.grid-table tr{
+  color: black;
+  background: (--zesty-background);
+}
+
+.grid-table th {
+  background: white;
+  font-weight: 800;
+}
+
+.mat-column-low{
+  width: 10%;
+}
+
+.mat-column-medium{
+  width: 30%;
+}
+
+.mat-column-large{
+  width: 75%;
+}
+
+.mat-column-action{
+  width: 20px;
+}
+
+.grid-table tr:nth-child(even) {
+  background: var(--zesty-surface);
+}
