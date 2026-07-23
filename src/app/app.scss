@@ -14,7 +14,7 @@ mat-toolbar {
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: var(--zesty-accent-light);
+  background-color: var(--zesty-accent-dark);
 }
 
 .toolbar {
@@ -48,7 +48,7 @@ mat-toolbar {
 .subcontent-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
 }
 
 .subcontent-children {

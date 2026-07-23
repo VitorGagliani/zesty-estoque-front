@@ -8,13 +8,23 @@
     <ng-container *ngFor="let modulo of modulos">
       <div class="subcontent">
         <div class="subcontent-header">
-          <button
-            mat-button
-            color="primary"
-            (click)="sidenav.toggle()"
-            [routerLink]="['/', modulo.codigo.toLowerCase()]">
-            {{ modulo.nome }}
-          </button>
+          <ng-container *ngIf="modulo.filhos?.length; else parentLink">
+            <button
+              mat-button
+              color="primary"
+              (click)="toggleFilhos(modulo.codigo)">
+              {{ modulo.nome }}
+            </button>
+          </ng-container>
+          <ng-template #parentLink>
+            <button
+              mat-button
+              color="primary"
+              (click)="sidenav.toggle()"
+              [routerLink]="['/', modulo.codigo.toLowerCase()]">
+              {{ modulo.nome }}
+            </button>
+          </ng-template>
 
           <button
             *ngIf="modulo.filhos?.length"
