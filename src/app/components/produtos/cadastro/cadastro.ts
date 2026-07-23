@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ProdutosService, ProdutoCadastro } from '../../../core/services/produtos.service';
 import { ConfirmCadastroDialog } from '../../../shared/confirm-dialog/confirm-dialog';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -45,7 +46,7 @@ export class Cadastro {
     { value: 1, label: 'Fornecedor 1' },
   ];
 
-  constructor(private readonly produtosService: ProdutosService, private readonly dialog: MatDialog) {}
+  constructor(private readonly produtosService: ProdutosService, private readonly dialog: MatDialog, private router: Router, private route: ActivatedRoute) {}
 
   salvar(): void {
     if (this.form.invalid) {
@@ -86,6 +87,7 @@ export class Cadastro {
         next: (result: ProdutoCadastro) => {
           console.log('Produto cadastrado:', result);
           this.form.reset({ tipoId: 1, unidadeId: 1 });
+          this.router.navigate(['/produtos']);
         },
         error: (error: unknown) => {
           console.error('Erro ao cadastrar produto:', error);
